@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Signup</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff7eb3,#65d6ce,#ffd166,#6a89ff);
+background-size:400% 400%;
+animation:bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
+}
+
+.container{
+width:350px;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:none;
+background:#6a89ff;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#4b63d1;
+}
+
+.switch{
+margin-top:15px;
+font-size:14px;
+}
+
+.switch span{
+color:#6a89ff;
+cursor:pointer;
+font-weight:bold;
+}
+
+.hidden{
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- LOGIN FORM -->
+<div id="loginForm">
+<h2>Login</h2>
+<input type="text" placeholder="Username" required>
+<input type="password" placeholder="Password" required>
+<button>Login</button>
+<div class="switch">
+Don't have an account? <span onclick="showSignup()">Signup</span>
+</div>
+</div>
+
+<!-- SIGNUP FORM -->
+<div id="signupForm" class="hidden">
+<h2>Signup</h2>
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email" required>
+<input type="password" placeholder="Password" required>
+<button>Create Account</button>
+<div class="switch">
+Already have an account? <span onclick="showLogin()">Login</span>
+</div>
+</div>
+
+</div>
+
+<script>
+function showSignup(){
+document.getElementById("loginForm").classList.add("hidden");
+document.getElementById("signupForm").classList.remove("hidden");
+}
+
+function showLogin(){
+document.getElementById("signupForm").classList.add("hidden");
+document.getElementById("loginForm").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
